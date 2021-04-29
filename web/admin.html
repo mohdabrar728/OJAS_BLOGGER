@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <title>OJAS-BLOGGER</title>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .containers{
+                margin: auto;
+                width: 500px;
+                max-width: 40%;
+
+            }
+            .containers form{
+                width: 100%;
+                height: 100%;
+                padding: 20px;
+                background: white;
+                border-radius: 4px;
+                box-shadow: 0 8px 16px rgba(0,0,0,.3);
+            }
+            .containers form h1{
+                text-align: center;
+                margin-bottom: 24px;
+                color: orange;
+            }
+            .containers form .form-control{
+                width: 100%;
+                height: 40px;
+                background: white;
+                border-radius: 4px;
+                border: 1px solid silver;
+                margin: 10px 0 18px 0;
+                padding: 0 10px;
+            }
+            .containers form .btn{
+                margin-left: 50%;
+                transform: translateX(-50%);
+                width: 120px;
+                height: 34px;
+                border: none;
+                outline: none;
+                background: orange;
+                cursor: pointer;
+                font-size: 16px;
+                text-transform: uppercase;
+                color: white;
+                border-radius: 4px;
+                transition: .3s;
+            }
+        </style>    
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link rel="stylesheet" href="css/templatemo_style.css">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <!-- Include eel.js - note this file doesn't exist in the 'web' directory -->
+        <script type="text/javascript" src="/eel.js"></script>
+        <script type="text/javascript">
+        $(function(){
+
+                    eel.expose(say_hello_js);               // Expose this function to Python
+                    function say_hello_js(x) {
+                    console.log("Hello from " + x);
+                    }
+                    say_hello_js("Javascript World!");
+                    eel.handleinput("connected!");  // Call a Python function
+
+                    $("#btn").click(function(){
+                        eel.handleinput($("#inp").val());
+                        $('#inp').val('');
+                        eel.handleinput($("#inp1").val());
+                        $('#inp1').val('');
+                    });
+        });
+        </script>
+    </head>
+    <body>
+
+            <header>
+                <div id="main-header">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="logo">
+                                    <a href="#"><img src="images/logo.png" title="Grill Template" alt="Grill Website Template" ></a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="main-menu">
+                                    <ul>
+                                        <li><a href="index.html">Home</a></li>
+                                        <li><a href="admin.html">Admin</a></li>
+                                        <li><a href="user-registration.html">User Registration</a></li>
+                                        <li><a href="user-login.html">User Login</a></li>   
+                                        <li><a href="about-us.html">About</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="search-box">  
+                                    <form name="search_form" method="get" class="search_form">
+                                        <input id="search" type="text" />
+                                        <input type="submit" id="search-button" />
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </body>        
+        <div class="containers">
+            <form action="" method="POST">
+                <h1>Admin Login</h1>
+                <div class="form-group">
+                    <label for="">Admin Username</label>
+                    <input type="text" id='inp' name='admin_username' class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" id='inp1' name="password" class="form-control" required>
+                </div>
+                <input type="submit" id='btn' class="btn" value="Login">
+            </form>
+        </div>
