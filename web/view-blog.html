@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>OJAS-BLOGGER</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .containers {
+            margin: auto;
+            width: 1000px;
+            max-width: 90%;
+
+        }
+
+        .containers form {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, .3);
+        }
+
+        .containers form h1 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: orange;
+        }
+
+        .containers form .form-control {
+            width: 100%;
+            height: 40px;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid silver;
+            margin: 10px 0 18px 0;
+            padding: 0 10px;
+        }
+
+        .containers form .btn {
+            margin-left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 34px;
+            border: none;
+            outline: none;
+            background: orange;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: white;
+            border-radius: 4px;
+            transition: .3s;
+        }
+
+        table {
+            margin-left: 0px;
+            /* margin-rigth: 5px; */
+            margin-top: 0px;
+            margin-bottom: 5px;
+            width: 100%;
+            /* heigth: 100%; */
+            border: 1px solid #333;
+            padding: 0px;
+            border-collapse: separate;
+            border-spacing: 0;
+            -moz-border-radius-topleft: 7px;
+            -webkit-border-top-left-radius: 7px;
+            border-top-left-radius: 7px;
+            -moz-border-radius-topright: 7px;
+            -webkit-border-top-right-radius: 7px;
+            border-top-right-radius: 7px;
+            -moz-border-radius-bottomleft: 7px;
+            -webkit-border-bottom-left-radius: 7px;
+            border-bottom-left-radius: 7px;
+            -moz-border-radius-bottomright: 7px;
+            -webkit-border-bottom-right-radius: 7px;
+            border-bottom-right-radius: 7px;
+        }
+
+        td {
+            background-color: #FAEBD7;
+            /* //	#DCDCDC */
+            padding: 15px;
+        }
+        p { text-align: justify !important; }
+    </style>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link
+        href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/templatemo_style.css">
+    <script src="/eel.js"></script>
+    <script src="js/view-blog.js"></script>
+
+</head>
+
+<body>
+
+    <header>
+        <div id="main-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="logo">
+                            <a href="#"><img src="images/logo.png" title="Grill Template"
+                                    alt="Grill Website Template"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="main-menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="adding-blog.html">Adding Blog</a></li>
+                                <li><a href="list-of-blog.html">List of Blog</a></li>
+                                <li><a href="view-blog.html">View Blog</a></li>
+                                <li><a href="edit-blog.html">Edit Blog</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="search-box">
+                            <form name="search_form" method="get" class="search_form">
+                                <input id="search" type="text" />
+                                <input type="submit" id="search-button" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+</body>
+<div class="containers">
+    <table id="dynamic">
+        <tr>
+            <td>Username </td>
+            <td id="username"></td>
+        </tr>
+        <tr>
+            <td>Name </td>
+            <td id="name"></td>
+        </tr>
+        <tr>
+            <td>Email Id </td>
+            <td id="email"></td>
+        </tr>
+    </table>
+</div>
+<div class="containers">
+    <form action="" method="get">
+        <div class="form-group">
+            <label for="">Title</label>
+            <input type="text" id="stitle" class="form-control" required>
+        </div>
+        <input type="button" id="btn" class="btn" value="Submit" onclick="code()">
+        <div class="form-group">
+            <h1 id="title1"></h1><br/>
+            <p id="content"  style="font-family:verdana"></p>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    function str(array) {
+        var array_value = Object.values(array);
+        console.log(array_value);
+        //$("#title").text(array_value[0]);
+        $("#content").text(array_value[1]);
+        document.getElementById('<%= title %>').innerHTML = array_value[0];
+        document.getElementById('<%= content %>').innerHTML = array_value[1];
+    }
+    function addcall(n) {
+        console.write(n)
+        let array = Object.values(n);
+        console.log(array);
+        str(Object.values(array));
+    }
+
+</script>

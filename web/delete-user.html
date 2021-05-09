@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>OJAS-BLOGGER</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .containers {
+            margin: auto;
+            width: 1000px;
+            max-width: 90%;
+
+        }
+
+        .containers form {
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, .3);
+        }
+
+        .containers form h1 {
+            text-align: center;
+            margin-bottom: 24px;
+            color: orange;
+        }
+
+        .containers form .form-control {
+            width: 100%;
+            height: 40px;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid silver;
+            margin: 10px 0 18px 0;
+            padding: 0 10px;
+        }
+
+        .containers form .btn {
+            margin-left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 34px;
+            border: none;
+            outline: none;
+            background: orange;
+            cursor: pointer;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: white;
+            border-radius: 4px;
+            transition: .3s;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            width: 100%;
+            padding: 15px;
+            border-collapse: collapse;
+
+        }
+
+        th {
+            background-color: #FFD580;
+        }
+
+        td {
+            padding: 55px;
+        }
+    </style>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link
+        href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/templatemo_style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div id="main-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="logo">
+                            <a href="#"><img src="images/logo.png" title="Grill Template"
+                                    alt="Grill Website Template"></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="main-menu">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="admin-manage.html">Manage User</a></li>
+                                <li><a href="delete-user.html">Deleting User</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="search-box">
+                            <form name="search_form" method="get" class="search_form">
+                                <input id="search" type="text" />
+                                <input type="submit" id="search-button" />
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <script src="/eel.js"></script>
+    <script src="js/view_user.js"></script>
+    <script src="js/delete.js"></script>
+</body>
+<h1 id="txt" style="color: orange;"></h1>
+<div id="bask1" class="containers">
+    <form action="">
+        <label for="">Username</label>
+        <input id="input1" type="text" placeholder="Enter UserName">
+        <label  for="">Title</label>
+        <input id="input2" type="text" placeholder="Enter Title">
+        <input type="submit" id="btn" class="btn" value="Delete" onclick="fun2()">
+    </form>
+</div>
+
+</html>
+<script>
+    async function fun2() {
+        var user = document.getElementById('input1').value;
+        var title = document.getElementById('input2').value;
+
+        let x = await eel.deleteuser(user, title)();
+        console.log(x);
+        // addcall(x);
+
+        // function dyn(array, array1) {
+        //     var array_key = [];
+        //     for (var c = 0; c < array.length; c++) {
+        //         array_key += c + 1
+        //     }
+        //     var arr_keys = array1;
+        //     var array_value = array;
+        //     console.log(arr_keys)
+        //     console.log(array_value)
+
+        //     // let head = document.getElementById('txt');
+        //     // let txt = document.createTextNode('User Blogs')
+        //     // head.appendChild(txt)
+        //     // document.getElementById('bask2').innerHTML = '';
+        //     var dynobj = document.getElementById('dyna');
+        //     for (var count = 0; count < array.length; count++) {
+        //         var newRow = dynobj.insertRow();
+        //         var newcell1 = newRow.insertCell(0);
+        //         var newcell2 = newRow.insertCell(1);
+        //         var newcell3 = newRow.insertCell(2);
+        //         var newcell4 = newRow.insertCell(3);
+
+        //         newcell1.innerHTML = array_key[count]
+        //         newcell2.innerHTML = arr_keys[count]
+        //         newcell3.innerHTML = array_value[count]
+        //         newcell4.innerHTML = '06-05-2021'
+        //     }
+        // }
+        // function addcall(x) {
+        //     let array = Object.values(x);
+        //     let array1 = Object.keys(x);
+        //     dyn(Object.values(array), Object.values(array1));
+        //     // for(i=0;i<array.length;i++){
+        //     // addElement(array[i]);
+        //     // dyn(Object.values(array));
+        // }
+    }
+
+
+</script>
