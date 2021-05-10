@@ -46,22 +46,16 @@ class EditBlog:
             return
     def editerBlog(self, user,title,blog):
         #print(user,title,blog)
-        #try:
-        mycursor = data.cursor()
-        mycursor.execute("use blogger")
-        mainstring = ''
-        for i in title:
-            if i == "'" or i == '"':
-                mainstring += f"\{i}"
-            else:
-                mainstring += i
-        query = r"update {0} set blog='{1}' where title='{2}'".format(user,blog,mainstring)
-        #print(query)
-        mycursor.execute(query)
-        data.commit()
-        #return 1
-        #except:
-        #    return 0
+        try:
+            mycursor = data.cursor()
+            mycursor.execute("use blogger")
+            query = r"update {0} set blog='{1}' where title='{2}'".format(user, blog, title)
+            #print(query)
+            mycursor.execute(query)
+            data.commit()
+            return 1
+        except:
+            return 0
 
 '''
 class UserLoginCall():

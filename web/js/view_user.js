@@ -33,12 +33,12 @@ async function fun1() {
       var newcell1 = newRow.insertCell(0);
       var newcell2 = newRow.insertCell(1);
       var newcell3 = newRow.insertCell(2);
-      var newcell4 = newRow.insertCell(3);
+      //var newcell4 = newRow.insertCell(3);
 
-      newcell1.innerHTML = array_key[count]
+      newcell1.innerHTML = parseInt(Object.keys(array)[count])+1;
       newcell2.innerHTML = arr_keys[count]
       newcell3.innerHTML = array_value[count]
-      newcell4.innerHTML = '06-05-2021'
+     // newcell4.innerHTML = '06-05-2021'
     }
   }
   function addcall(n) {

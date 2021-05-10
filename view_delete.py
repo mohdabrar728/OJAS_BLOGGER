@@ -49,14 +49,17 @@ class Deleting_user:
         self.title = title
 
     def deleteuser(self):
-        dic = {}
-        mycursor = data.cursor()
-        mycursor.execute('USE blogger')
-        mycursor.execute(f"DELETE FROM {self.user} WHERE title = '{self.title}'")
-        mycursor.execute(f"select * from {self.user}")
-        res = mycursor.fetchall()
-        for j in res:
-            dic[j[0]] = j[1]
-        print(dic)
-        data.commit()
-        return dic
+        try:
+            dic = {}
+            mycursor = data.cursor()
+            mycursor.execute('USE blogger')
+            mycursor.execute(f"DELETE FROM {self.user} WHERE title = '{self.title}'")
+            mycursor.execute(f"select * from {self.user}")
+            res = mycursor.fetchall()
+            for j in res:
+                dic[j[0]] = j[1]
+            print(dic)
+            data.commit()
+            return True
+        except:
+            return False

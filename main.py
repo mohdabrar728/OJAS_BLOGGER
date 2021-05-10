@@ -254,6 +254,25 @@ def selectuser(user):
 def deleteuser(user,title):
     import view_delete
     userdelete = view_delete.Deleting_user(user,title).deleteuser()
-    return userdelete
+    print(userdelete)
+    if userdelete == True:
+        f = open('web/prompt.html', 'w')
+        message = f"""<html>
+                                <head></head>
+                                <body><br/><center><H1 style="color:Green">Successfully, Deleted Blog</H1></center</body>
+                                </html>"""
+        f.write(message)
+        f.close()
+        eel.show("prompt.html")
+    else:
+        f = open('web/prompt.html', 'w')
+        message = f"""<html>
+                                <head></head>
+                                <body><br/><center><H1 style="color:Red">blog not delect there may user or title not exists</H1></center</body>
+                                </html>"""
+        f.write(message)
+        f.close()
+        eel.show("prompt.html")
+
 
 eel.start('index.html')

@@ -126,29 +126,29 @@
                     <tr>
                         <th ><center><b>S.No</b></center></th>
                         <th><center><b>Title of Blogs</b></center></th>
-                        <th><center><b>Date</b></center></th>
+                        <!--<th><center><b>Date</b></center></th>-->
                     </tr>
                 </table>
             </form>
         </div>
 <script type="text/javascript">
     function dyn(array){
-    var array_key = [];
-    for(var c=0;c<array.length;c++){
-        array_key += c+1
-    }
+    //var array_key = [];
+    //for(var c=0;c<array.length;c++){
+    //    array_key += c+1
+    //}
     var array_value = Object.values(array);
     var dynobj = document.getElementById('dyna');
     for(var count=0;count<array.length;count++){
         var newRow = dynobj.insertRow();
         var newcell1 = newRow.insertCell(0);
         var newcell2 = newRow.insertCell(1);
-        var newcell3 = newRow.insertCell(2);
+       // var newcell3 = newRow.insertCell(2);
         //var newcell4 = newRow.insertCell(3);
 
-        newcell1.innerHTML=array_key[count]
+        newcell1.innerHTML= parseInt(Object.keys(array)[count])+1;
         newcell2.innerHTML=array_value[count]
-        newcell3.innerHTML='06-05-2021'
+        //newcell3.innerHTML='06-05-2021'
      }
     }
     function addcall(n){
